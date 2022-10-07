@@ -1,5 +1,5 @@
 import { CustomError } from "../error/Erros";
-import { taks } from "../model/taks";
+import { deletetaks, taks } from "../model/taks";
 import { BaseDataBase } from "./BaseDataBase";
 
 
@@ -30,7 +30,7 @@ export class UserDatabase extends BaseDataBase {
         }
     };
     
-    public deleteTaks = async (taks:taks) =>{
+    public deleteTaks = async (taks:deletetaks) =>{
         try {
             await BaseDataBase.connection("Create_to_do_list")
             .delete()
@@ -41,7 +41,7 @@ export class UserDatabase extends BaseDataBase {
     };
 
 
-    public allTaks =async (taks:taks) => {
+    public allTaks =async () => {
         try{
             const result = await BaseDataBase.connection("Create_to_do_list")
             .select("id","taks")

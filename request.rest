@@ -1,0 +1,30 @@
+//Mostra todas as Tarefas//
+GET http://localhost:3003/user/allTaks
+Content-Type: application/json
+
+###
+
+//Criar Tarefas // 
+POST http://localhost:3003/user/createTaks
+Content-Type: application/json
+
+{
+    "taks":"rdasdasdasdasdasdass"
+}
+
+###
+
+//Editar Tarefas//
+PUT http://localhost:3003/user/editTaks/1665105174852
+Content-Type: application/json
+
+{   
+    
+    "taks":"Limpar casa"
+}
+
+###
+
+//Deleta Tarefas//
+DELETE  http://localhost:3003/user/deleteTaks/1665105371607
+Content-Type: application/json
