@@ -1,21 +1,22 @@
 import { UserDatabase } from "../data/UserDatabase";
 import { CustomError } from "../error/Erros";
-import { assignment, deletetaks, taks } from "../model/taks";
+import { assignment, deletetaks, taks, task } from "../model/taks";
 
 
 
 export class UserBusiness {
     public createTaks = async (input: assignment) =>{
-        const {taks} = input;
+        const {taks,completed} = input;
         if (!taks){
             throw new CustomError(
                 422, "É necessário adicionar uma tarefa."
             );
         };
         const id :string = Date.now().toString();
-        const newTaks:taks = {
+        const newTaks: task = {
             id:id,
-            taks
+            taks,
+            completed
         };
         const userDataBase = new UserDatabase();
         await userDataBase.insertTaks(newTaks);
@@ -24,7 +25,7 @@ export class UserBusiness {
 
     public editTaks = async(input:taks) => {
         const {id,taks} = input;
-        if (!taks){
+        if (!taks || !id){
             throw new CustomError(
                 422, "É necessário adicionar ou altera uma tarefa."
             );

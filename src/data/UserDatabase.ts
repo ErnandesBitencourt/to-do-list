@@ -1,16 +1,18 @@
 import { CustomError } from "../error/Erros";
-import { deletetaks, taks } from "../model/taks";
+import { deletetaks, taks, task } from "../model/taks";
 import { BaseDataBase } from "./BaseDataBase";
 
 
 
 export class UserDatabase extends BaseDataBase {
-    public insertTaks = async (taks :taks) =>{
+    public insertTaks = async (task :task) =>{
         try{
             await BaseDataBase.connection
             .insert({
-                id:taks.id,
-                taks:taks.taks
+                id:task.id,
+                taks:task.taks,
+                completed:task.completed
+
             })
             .into("Create_to_do_list");
         }catch(error:any){
@@ -44,7 +46,7 @@ export class UserDatabase extends BaseDataBase {
     public allTaks =async () => {
         try{
             const result = await BaseDataBase.connection("Create_to_do_list")
-            .select("id","taks")
+            .select("id","taks","completed")
             return result
         }catch(error:any){
             throw new CustomError(400, error.message || error.sqlMessage)

@@ -8,9 +8,11 @@ import {  assignment, deletetaks, taks } from "../model/taks";
 export class UserController{
     public createTaks = async(req:Request, res:Response) =>{
         try{
-            const taks  = req.body.taks 
+            const taks  = req.body.taks
+            const  completed = req.body.isCompleted
             const createTaks:assignment = {
-                taks
+                taks,
+                completed
             }   
             const userBusiness = new UserBusiness();
             await  userBusiness.createTaks(createTaks)
