@@ -6,12 +6,14 @@ import { assignment, deletetaks, taks, task } from "../model/taks";
 
 export class UserBusiness {
     public createTaks = async (input: assignment) =>{
+        console.log('busi',input)
         const {taks,completed} = input;
         if (!taks){
             throw new CustomError(
                 422, "É necessário adicionar uma tarefa."
             );
         };
+        
         const id :string = Date.now().toString();
         const newTaks: task = {
             id:id,

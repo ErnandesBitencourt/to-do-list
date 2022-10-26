@@ -4,7 +4,7 @@ CREATE TABLE IF NOT EXISTS Create_to_do_list (
     taks VARCHAR(255) NOT NULL
 );
 
-ALTER TABLE Create_to_do_list 
+ALTER TABLE Create_to_do_list
     ADD completed BOOLEAN;
 
     ALTER TABLE Create_to_do_list 

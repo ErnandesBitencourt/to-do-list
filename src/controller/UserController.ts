@@ -7,9 +7,10 @@ import {  assignment, deletetaks, taks } from "../model/taks";
 
 export class UserController{
     public createTaks = async(req:Request, res:Response) =>{
+        console.log("contr",req.body)
         try{
             const taks  = req.body.taks
-            const  completed = req.body.isCompleted
+            const  completed = req.body.completed
             const createTaks:assignment = {
                 taks,
                 completed

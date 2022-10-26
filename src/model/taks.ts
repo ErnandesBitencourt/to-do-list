@@ -3,7 +3,7 @@ export type taks = {
     taks:string
     
 };
-export interface task  { 
+export interface task { 
     id: string
     taks:string
     completed:boolean
@@ -13,6 +13,6 @@ export interface deletetaks {
 };
 export interface assignment {
     taks:string
-    completed: boolean
+    completed:boolean
 };
 

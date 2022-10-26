@@ -7,18 +7,17 @@ import { BaseDataBase } from "./BaseDataBase";
 export class UserDatabase extends BaseDataBase {
     public insertTaks = async (task :task) =>{
         try{
+            console.log(task)
             await BaseDataBase.connection
             .insert({
                 id:task.id,
                 taks:task.taks,
                 completed:task.completed
-
             })
             .into("Create_to_do_list");
         }catch(error:any){
             throw new CustomError(400,error.message || error.sqlMessage )
         }
-
     };
 
     public editTaks = async(taks:taks) =>{

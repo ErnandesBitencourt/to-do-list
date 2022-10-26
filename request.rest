@@ -9,8 +9,8 @@ POST http://localhost:3003/user/createTaks
 Content-Type: application/json
 
 {
-    "taks":"rdasdasdadadasdasdasdassdasdas",
-       "completed":"true"
+    "taks":"test 2 ",
+       "completed": 1
 }
 
 ###
